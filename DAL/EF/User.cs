@@ -17,7 +17,6 @@ namespace DAL.EF
         public User()
         {
             this.BookStores = new HashSet<BookStore>();
-            this.Reports = new HashSet<Report>();
             this.Tokens = new HashSet<Token>();
         }
     
@@ -30,7 +29,7 @@ namespace DAL.EF
         public string address { get; set; }
     
         public virtual ICollection<BookStore> BookStores { get; set; }
-        public virtual ICollection<Report> Reports { get; set; }
+        public virtual Report Report { get; set; }
         public virtual Role Role { get; set; }
         public virtual ICollection<Token> Tokens { get; set; }
     }

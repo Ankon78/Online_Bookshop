@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="BookshopModelStoreContainer" CdmEntityContainer="BookshopEntities">
+  <EntityContainerMapping StorageEntityContainer="BookshopModelStoreContainer" CdmEntityContainer="BookshopEntities4">
     <EntitySetMapping Name="Books">
       <EntityTypeMapping TypeName="BookshopModel.Book">
         <MappingFragment StoreEntitySet="Books">

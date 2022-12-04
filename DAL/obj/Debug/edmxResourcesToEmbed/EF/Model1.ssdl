@@ -10,7 +10,7 @@
     <Property Name="languageId" Type="int" Nullable="false" />
     <Property Name="quantity" Type="int" Nullable="false" />
     <Property Name="amount" Type="int" Nullable="false" />
-    <Property Name="bShopName" Type="varchar" MaxLength="50" />
+    <Property Name="bShopName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="BookStores">
@@ -94,7 +94,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_BookStores_BookStores">
+  <Association Name="FK_BookStores_Users">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="BookStores" Type="Self.BookStores" Multiplicity="*" />
     <ReferentialConstraint>
@@ -132,13 +132,13 @@
   </Association>
   <Association Name="FK_Reports_Users">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
-    <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
+    <End Role="Reports" Type="Self.Reports" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="Reports">
-        <PropertyRef Name="userId" />
+        <PropertyRef Name="id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -180,7 +180,7 @@
       <End Role="Languages" EntitySet="Languages" />
       <End Role="Books" EntitySet="Books" />
     </AssociationSet>
-    <AssociationSet Name="FK_BookStores_BookStores" Association="Self.FK_BookStores_BookStores">
+    <AssociationSet Name="FK_BookStores_Users" Association="Self.FK_BookStores_Users">
       <End Role="Users" EntitySet="Users" />
       <End Role="BookStores" EntitySet="BookStores" />
     </AssociationSet>

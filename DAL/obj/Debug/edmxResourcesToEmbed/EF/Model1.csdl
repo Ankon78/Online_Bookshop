@@ -10,7 +10,7 @@
     <Property Name="languageId" Type="Int32" Nullable="false" />
     <Property Name="quantity" Type="Int32" Nullable="false" />
     <Property Name="amount" Type="Int32" Nullable="false" />
-    <Property Name="bShopName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="bShopName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Language" Relationship="Self.FK_Books_Languages" FromRole="Books" ToRole="Languages" />
     <NavigationProperty Name="Buys" Relationship="Self.FK_Buys_Books" FromRole="Books" ToRole="Buys" />
@@ -24,7 +24,7 @@
     <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="phone" Type="Int32" Nullable="false" />
     <Property Name="userId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="User" Relationship="Self.FK_BookStores_BookStores" FromRole="BookStores" ToRole="Users" />
+    <NavigationProperty Name="User" Relationship="Self.FK_BookStores_Users" FromRole="BookStores" ToRole="Users" />
   </EntityType>
   <EntityType Name="Buy">
     <Key>
@@ -91,8 +91,8 @@
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="roleId" Type="Int32" Nullable="false" />
     <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="BookStores" Relationship="Self.FK_BookStores_BookStores" FromRole="Users" ToRole="BookStores" />
-    <NavigationProperty Name="Reports" Relationship="Self.FK_Reports_Users" FromRole="Users" ToRole="Reports" />
+    <NavigationProperty Name="BookStores" Relationship="Self.FK_BookStores_Users" FromRole="Users" ToRole="BookStores" />
+    <NavigationProperty Name="Report" Relationship="Self.FK_Reports_Users" FromRole="Users" ToRole="Reports" />
     <NavigationProperty Name="Role" Relationship="Self.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
     <NavigationProperty Name="Tokens" Relationship="Self.FK_Tokens_Users" FromRole="Users" ToRole="Tokens" />
   </EntityType>
@@ -120,7 +120,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_BookStores_BookStores">
+  <Association Name="FK_BookStores_Users">
     <End Role="Users" Type="Self.User" Multiplicity="1" />
     <End Role="BookStores" Type="Self.BookStore" Multiplicity="*" />
     <ReferentialConstraint>
@@ -146,13 +146,13 @@
   </Association>
   <Association Name="FK_Reports_Users">
     <End Role="Users" Type="Self.User" Multiplicity="1" />
-    <End Role="Reports" Type="Self.Report" Multiplicity="*" />
+    <End Role="Reports" Type="Self.Report" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="Reports">
-        <PropertyRef Name="userId" />
+        <PropertyRef Name="id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -180,7 +180,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="BookshopEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="BookshopEntities4" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Books" EntityType="Self.Book" />
     <EntitySet Name="BookStores" EntityType="Self.BookStore" />
     <EntitySet Name="Buys" EntityType="Self.Buy" />
@@ -198,7 +198,7 @@
       <End Role="Books" EntitySet="Books" />
       <End Role="Buys" EntitySet="Buys" />
     </AssociationSet>
-    <AssociationSet Name="FK_BookStores_BookStores" Association="Self.FK_BookStores_BookStores">
+    <AssociationSet Name="FK_BookStores_Users" Association="Self.FK_BookStores_Users">
       <End Role="Users" EntitySet="Users" />
       <End Role="BookStores" EntitySet="BookStores" />
     </AssociationSet>

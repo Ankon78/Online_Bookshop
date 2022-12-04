@@ -13,10 +13,10 @@ namespace DAL.EF
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BookshopEntities : DbContext
+    public partial class BookshopEntities4 : DbContext
     {
-        public BookshopEntities()
-            : base("name=BookshopEntities")
+        public BookshopEntities4()
+            : base("name=BookshopEntities4")
         {
         }
     

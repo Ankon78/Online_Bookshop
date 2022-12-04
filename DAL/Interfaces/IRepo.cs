@@ -15,8 +15,6 @@ namespace DAL.Interfaces
             bool Delete(ID id);
             bool Update(CLASS obj);
 
-
-
         }
     
 }
