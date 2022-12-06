@@ -8,45 +8,46 @@ using System.Threading.Tasks;
 
 namespace DAL.Repo
 {
-    public class LanguageRepo : IRepo<Language, int, Language>
+    public class PaymentRepo : IRepo<Payment, int, Payment>
     {
-        BookshopEntities db;
 
-        public LanguageRepo()
+        BookshopEntities db;
+        public PaymentRepo()
         {
             db = new BookshopEntities();
         }
-        public Language Add(Language obj)
+
+        public Payment Add(Payment obj)
         {
-            db.Languages.Add(obj);
+            db.Payments.Add(obj);
             if (db.SaveChanges() > 0) return obj;
             return null;
         }
 
         public bool Delete(int id)
         {
-            var language = db.Languages.Find(id);
-            db.Languages.Remove(language);
+            var Payment = db.Payments.Find(id);
+            db.Payments.Remove(Payment);
             return db.SaveChanges() > 0;
         }
 
-
-        public List<Language> Get()
+        public List<Payment> Get()
         {
-            var data = db.Languages.ToList();
+            var data = db.Payments.ToList();
             return data;
         }
 
-        public Language Get(int id)
+        public Payment Get(int id)
         {
-            return db.Languages.Find(db.Languages.Find(id));
+            return db.Payments.Find(db.Payments.Find(id));
         }
-
-        public bool Update(Language obj)
+        public bool Update(Payment obj)
         {
-            var ext = db.Languages.Find(obj.id);
+            var ext = db.Payments.Find(obj.id);
             db.Entry(ext).CurrentValues.SetValues(obj);
             return db.SaveChanges() > 0;
         }
+    
+
     }
 }

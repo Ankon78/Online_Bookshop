@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="BookshopModelStoreContainer" CdmEntityContainer="BookshopEntities4">
+  <EntityContainerMapping StorageEntityContainer="BookshopModelStoreContainer" CdmEntityContainer="BookshopEntities">
     <EntitySetMapping Name="Books">
       <EntityTypeMapping TypeName="BookshopModel.Book">
         <MappingFragment StoreEntitySet="Books">
@@ -39,7 +39,7 @@
       <EntityTypeMapping TypeName="BookshopModel.Language">
         <MappingFragment StoreEntitySet="Languages">
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="language1" ColumnName="language" />
+          <ScalarProperty Name="language" ColumnName="language" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

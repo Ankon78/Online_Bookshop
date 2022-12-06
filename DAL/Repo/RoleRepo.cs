@@ -10,10 +10,10 @@ namespace DAL.Repo
 {
     internal class RoleRepo : IRepo<Role, int, Role>
     {
-        BookshopEntities4 db;
+        BookshopEntities db;
         public RoleRepo()
         {
-            db = new BookshopEntities4();
+            db = new BookshopEntities();
         }
         public Role Add(Role obj)
         {

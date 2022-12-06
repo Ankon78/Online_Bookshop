@@ -20,7 +20,7 @@ namespace DAL.EF
         }
     
         public int id { get; set; }
-        public string language1 { get; set; }
+        public string language { get; set; }
     
         public virtual ICollection<Book> Books { get; set; }
     }

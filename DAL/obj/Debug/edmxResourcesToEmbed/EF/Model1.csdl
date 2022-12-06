@@ -41,7 +41,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="language1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="language" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Books" Relationship="Self.FK_Books_Languages" FromRole="Languages" ToRole="Books" />
   </EntityType>
   <EntityType Name="Payment">
@@ -180,7 +180,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="BookshopEntities4" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="BookshopEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Books" EntityType="Self.Book" />
     <EntitySet Name="BookStores" EntityType="Self.BookStore" />
     <EntitySet Name="Buys" EntityType="Self.Buy" />

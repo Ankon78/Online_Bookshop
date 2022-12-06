@@ -40,6 +40,15 @@ namespace DAL
         {
             return new LanguageRepo();
         }
+        public static IRepo<Report, int, Report> ReportDataAccess()
+        {
+            return new ReportRepo();
+        }
+        public static IRepo<Payment, int, Payment> PaymentDataAccess()
+        {
+            return new PaymentRepo();
+        }
+
         public static IAuth AuthDataAccess()
         {
             return new UserRepo();

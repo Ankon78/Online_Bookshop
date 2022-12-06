@@ -10,11 +10,11 @@ namespace DAL.Repo
 {
     public class BuyRepo : IRepo<Buy, int, Buy>
     {
-        BookshopEntities4 db;
+        BookshopEntities db;
 
         public BuyRepo()
         {
-            db = new BookshopEntities4();   
+            db = new BookshopEntities();   
         }
 
         public Buy Add(Buy obj)

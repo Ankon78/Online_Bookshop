@@ -49,6 +49,8 @@
     <Compile Include="DTOs\BookStoreDTO.cs" />
     <Compile Include="DTOs\BuyDTO.cs" />
     <Compile Include="DTOs\LanguageDTO.cs" />
+    <Compile Include="DTOs\PaymentDTO.cs" />
+    <Compile Include="DTOs\ReportDTO.cs" />
     <Compile Include="DTOs\RoleDTO.cs" />
     <Compile Include="DTOs\TokenDTO.cs" />
     <Compile Include="DTOs\UserDTO.cs" />
@@ -58,6 +60,8 @@
     <Compile Include="Services\BookStoreService.cs" />
     <Compile Include="Services\BuyService.cs" />
     <Compile Include="Services\LanguageService.cs" />
+    <Compile Include="Services\PaymentService.cs" />
+    <Compile Include="Services\ReportService.cs" />
     <Compile Include="Services\RoleService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>

@@ -256,7 +256,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="language1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="language" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Books" Relationship="Self.FK_Books_Languages" FromRole="Languages" ToRole="Books" />
         </EntityType>
         <EntityType Name="Payment">
@@ -395,7 +395,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BookshopEntities4" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BookshopEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Books" EntityType="Self.Book" />
           <EntitySet Name="BookStores" EntityType="Self.BookStore" />
           <EntitySet Name="Buys" EntityType="Self.Buy" />
@@ -439,7 +439,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BookshopModelStoreContainer" CdmEntityContainer="BookshopEntities4">
+        <EntityContainerMapping StorageEntityContainer="BookshopModelStoreContainer" CdmEntityContainer="BookshopEntities">
           <EntitySetMapping Name="Books">
             <EntityTypeMapping TypeName="BookshopModel.Book">
               <MappingFragment StoreEntitySet="Books">
@@ -478,7 +478,7 @@
             <EntityTypeMapping TypeName="BookshopModel.Language">
               <MappingFragment StoreEntitySet="Languages">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="language1" ColumnName="language" />
+                <ScalarProperty Name="language" ColumnName="language" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

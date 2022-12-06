@@ -10,10 +10,10 @@ namespace DAL.Repo
 {
     public class BookStoreRepo : IRepo <BookStore, int, BookStore>
     {
-        BookshopEntities4 db;
+        BookshopEntities db;
         public BookStoreRepo()
         {
-            db = new BookshopEntities4();   
+            db = new BookshopEntities();   
         }
         public BookStore Add(BookStore obj)
         {

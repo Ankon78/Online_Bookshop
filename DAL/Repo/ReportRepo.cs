@@ -8,43 +8,42 @@ using System.Threading.Tasks;
 
 namespace DAL.Repo
 {
-    public class LanguageRepo : IRepo<Language, int, Language>
+    public class ReportRepo : IRepo<Report, int, Report>
     {
-        BookshopEntities db;
 
-        public LanguageRepo()
+        BookshopEntities db;
+        public ReportRepo()
         {
             db = new BookshopEntities();
         }
-        public Language Add(Language obj)
+
+        public Report Add(Report obj)
         {
-            db.Languages.Add(obj);
+            db.Reports.Add(obj);
             if (db.SaveChanges() > 0) return obj;
             return null;
         }
 
         public bool Delete(int id)
         {
-            var language = db.Languages.Find(id);
-            db.Languages.Remove(language);
+            var Report = db.Reports.Find(id);
+            db.Reports.Remove(Report);
             return db.SaveChanges() > 0;
         }
 
-
-        public List<Language> Get()
+        public List<Report> Get()
         {
-            var data = db.Languages.ToList();
+            var data = db.Reports.ToList();
             return data;
         }
 
-        public Language Get(int id)
+        public Report Get(int id)
         {
-            return db.Languages.Find(db.Languages.Find(id));
+            return db.Reports.Find(db.Reports.Find(id));
         }
-
-        public bool Update(Language obj)
+        public bool Update(Report obj)
         {
-            var ext = db.Languages.Find(obj.id);
+            var ext = db.Reports.Find(obj.id);
             db.Entry(ext).CurrentValues.SetValues(obj);
             return db.SaveChanges() > 0;
         }

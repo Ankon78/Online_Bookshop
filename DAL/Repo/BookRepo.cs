@@ -11,10 +11,10 @@ namespace DAL.Repo
     public class BookRepo: IRepo<Book, int, Book>
     {
         
-        BookshopEntities4 db;
+        BookshopEntities db;
         public BookRepo()
         {
-            db = new BookshopEntities4();
+            db = new BookshopEntities();
         }
 
         public Book Add(Book obj)
