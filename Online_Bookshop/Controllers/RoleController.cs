@@ -1,5 +1,6 @@
 ﻿using BLL.DTOs;
 using BLL.Services;
+using DAL.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,30 +30,31 @@ namespace Online_Bookshop.Controllers
 
         [Route("api/roles/add")]
         [HttpPost]
-        public HttpResponseMessage Add(RoleDTO role)
+        public HttpResponseMessage Post(RoleDTO role)
         {
-            if (ModelState.IsValid)
+            var resp = RoleService.Add(role);
+            if (resp)
             {
-                var data = RoleService.Add(role);
-                if (data != null)
-                {
-                    return Request.CreateResponse(HttpStatusCode.OK, data);
-
-                }
-                return Request.CreateResponse(HttpStatusCode.InternalServerError);
-
+                return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "Inserted", data = role });
             }
-            return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-
+            return Request.CreateResponse(HttpStatusCode.InternalServerError);
         }
 
-        [Route("api/roles/delete")]
+        [Route("api/roles/delete/{id}")]
         [HttpGet]
         public HttpResponseMessage Delete(int id)
         {
 
             var data = RoleService.Delete(id);
             return Request.CreateResponse(HttpStatusCode.OK, "DELETED");
+        }
+
+        [Route("api/roles/update")]
+        [HttpPost]
+        public HttpResponseMessage Update(Role s)
+        {
+            RoleService.Update(s);
+            return Request.CreateResponse(HttpStatusCode.OK, "Updated");
         }
     }
 }

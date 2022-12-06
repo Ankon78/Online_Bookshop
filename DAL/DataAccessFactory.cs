@@ -12,11 +12,11 @@ namespace DAL
 {
     public class DataAccessFactory
     {
-        public static IRepo<User, int, User> UserDataAccess()
+        public static IRepo<User, int, bool> UserDataAccess()
         {
             return new UserRepo();
         }
-        public static IRepo<Role, int, Role> RoleDataAccess()
+        public static IRepo<Role, int, bool> RoleDataAccess()
         {
             return new RoleRepo();
         }

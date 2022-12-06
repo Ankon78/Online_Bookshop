@@ -35,7 +35,7 @@ namespace BLL.Services
             var data = DataAccessFactory.UserDataAccess().Delete(id);
             return data;
         }
-        public static UserDTO Add(UserDTO dto)
+        public static bool Add(UserDTO dto)
         {
             var config = new MapperConfiguration(cfg => {
                 cfg.CreateMap<User, UserDTO>();
@@ -44,16 +44,12 @@ namespace BLL.Services
             var mapper = new Mapper(config);
             var data = mapper.Map<User>(dto);
             var result = DataAccessFactory.UserDataAccess().Add(data);
-            return mapper.Map<UserDTO>(result);
+            return result;
         }
-        /*public static bool Delete(int id)
-        {
-            return DataAccessFactory.UserDataAccess().Delete(id);
-        }*/
+        
         public static void Update(User dto)
         {
-            /*return DataAccessFactory.UserDataAccess().Update(dto);*/
-
+            
             var config = new MapperConfiguration(c =>
             {
                 c.CreateMap<UserDTO, User>();

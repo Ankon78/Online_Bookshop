@@ -8,18 +8,17 @@ using System.Threading.Tasks;
 
 namespace DAL.Repo
 {
-    internal class UserRepo : IRepo<User, int, User>, IAuth
+    internal class UserRepo : IRepo<User, int, bool>, IAuth
     {
         BookshopEntities db;
         public UserRepo()
         {
             db = new BookshopEntities();
         }
-        public User Add(User obj)
+        public bool Add(User obj)
         {
             db.Users.Add(obj);
-            if(db.SaveChanges() > 0) return obj;
-            return null;
+            return db.SaveChanges() > 0;
         }
 
         public User Authenticate(string username, string password)
@@ -46,7 +45,7 @@ namespace DAL.Repo
 
         public User Get(int id)
         {
-            return db.Users.Find(db.Users.Find(id));
+            return db.Users.Find(id);
         }
 
         public bool Update(User obj)

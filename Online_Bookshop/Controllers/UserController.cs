@@ -30,21 +30,14 @@ namespace Online_Bookshop.Controllers
 
         [Route("api/users/add")]
         [HttpPost]
-        public HttpResponseMessage Add(UserDTO user)
+        public HttpResponseMessage Post(UserDTO user)
         {
-            if (ModelState.IsValid)
+            var resp = UserService.Add(user);
+            if (resp)
             {
-                var data = UserService.Add(user);
-                if (data != null)
-                {
-                    return Request.CreateResponse(HttpStatusCode.OK, data);
-
-                }
-                return Request.CreateResponse(HttpStatusCode.InternalServerError);
-
+                return Request.CreateResponse(HttpStatusCode.OK, new { Msg = "Inserted", data = user });
             }
-            return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-
+            return Request.CreateResponse(HttpStatusCode.InternalServerError);
         }
 
         [Route("api/user/delete/{id}")]

@@ -8,18 +8,17 @@ using System.Threading.Tasks;
 
 namespace DAL.Repo
 {
-    internal class RoleRepo : IRepo<Role, int, Role>
+    internal class RoleRepo : IRepo<Role, int, bool>
     {
         BookshopEntities db;
         public RoleRepo()
         {
             db = new BookshopEntities();
         }
-        public Role Add(Role obj)
+        public bool Add(Role obj)
         {
             db.Roles.Add(obj);
-            if (db.SaveChanges() > 0) return obj;
-            return null;
+            return db.SaveChanges() > 0;
         }
 
         public bool Delete(int id)
@@ -36,7 +35,7 @@ namespace DAL.Repo
 
         public Role Get(int id)
         {
-            return db.Roles.Find(db.Roles.Find(id));
+            return db.Roles.Find(id);
         }
 
         public bool Update(Role obj)
@@ -44,6 +43,15 @@ namespace DAL.Repo
             var ext = db.Roles.Find(obj.id);
             db.Entry(ext).CurrentValues.SetValues(obj);
             return db.SaveChanges() > 0;
+
+
+            /* var data = db.Roles.FirstOrDefault(e => e.id == obj.id);
+             data.role = obj.role;
+
+             db.SaveChanges();
+             return true;*/
+
+
         }
     }
 }
