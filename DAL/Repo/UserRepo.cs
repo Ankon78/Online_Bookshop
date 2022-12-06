@@ -50,14 +50,18 @@ namespace DAL.Repo
 
         public bool Update(User obj)
         {
-            var data = db.Users.FirstOrDefault(e => e.id == obj.id);
+            /*var data = db.Users.FirstOrDefault(e => e.id == obj.id);
             data.username = obj.username;
             data.password = obj.password;
             data.address = obj.address;
             data.phone = obj.phone;
             data.email = obj.email;
             db.SaveChanges();
-            return true;
+            return true;*/
+
+            var ext = db.Users.Find(obj.id);
+            db.Entry(ext).CurrentValues.SetValues(obj);
+            return db.SaveChanges() > 0;
 
         }
     }

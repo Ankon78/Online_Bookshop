@@ -38,8 +38,9 @@ namespace BLL.Services
         public static bool Add(UserDTO dto)
         {
             var config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<User, UserDTO>();
                 cfg.CreateMap<UserDTO, User>();
+                cfg.CreateMap<User, UserDTO>();
+                
             });
             var mapper = new Mapper(config);
             var data = mapper.Map<User>(dto);

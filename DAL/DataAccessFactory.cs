@@ -24,9 +24,36 @@ namespace DAL
         {
             return new TokenRepo();
         }
+        public static IRepo<Book, int, bool> BookDataAccess()
+        {
+            return new BookRepo();
+        }
+        public static IRepo<BookStore, int, bool> BookStoreDataAccess()
+        {
+            return new BookStoreRepo(); 
+        }
+        public static IRepo<Buy, int, bool> BuyDataAccess()
+        {
+            return new BuyRepo();
+        }
+        public static IRepo<Language, int, bool> LanguageDataAccess()
+        {
+            return new LanguageRepo();
+        }
+        public static IRepo<Report, int, bool> ReportDataAccess()
+        {
+            return new ReportRepo();
+        }
+        public static IRepo<Payment, int, bool> PaymentDataAccess()
+        {
+            return new PaymentRepo();
+        }
+
         public static IAuth AuthDataAccess()
         {
             return new UserRepo();
         }
+
+        
     }
 }
