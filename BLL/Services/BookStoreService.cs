@@ -37,13 +37,24 @@ namespace BLL.Services
                 
             });
             var mapper = new Mapper(config);
-            var data = mapper.Map<BookStore>(dto);
-            var result = DataAccessFactory.BookStoreDataAccess().Add(data);
+            var group = mapper.Map<BookStore>(dto);
+            var result = DataAccessFactory.BookStoreDataAccess().Add(group);
             return result;
         }
         public static bool Delete(int id)
         {
             return DataAccessFactory.BookStoreDataAccess().Delete(id);
+        }
+        public static void Update(BookStore dto)
+        {
+
+            var config = new MapperConfiguration(c =>
+            {
+                c.CreateMap<BookStoreDTO, BookStore>();
+            });
+            var mapper = new Mapper(config);
+            var data = mapper.Map<BookStore>(dto);
+            DataAccessFactory.BookStoreDataAccess().Update(data);
         }
     }
 }

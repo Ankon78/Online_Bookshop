@@ -28,3 +28,13 @@ C:\adv.net\Online_Bookshop\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\adv.net\Online_Bookshop\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\adv.net\Online_Bookshop\DAL\obj\Debug\DAL.dll
 C:\adv.net\Online_Bookshop\DAL\obj\Debug\DAL.pdb
+C:\Projects\Online_Bookshop\Online_Bookshop\DAL\bin\Debug\DAL.dll.config
+C:\Projects\Online_Bookshop\Online_Bookshop\DAL\bin\Debug\DAL.dll
+C:\Projects\Online_Bookshop\Online_Bookshop\DAL\bin\Debug\DAL.pdb
+C:\Projects\Online_Bookshop\Online_Bookshop\DAL\bin\Debug\EntityFramework.dll
+C:\Projects\Online_Bookshop\Online_Bookshop\DAL\bin\Debug\EntityFramework.xml
+C:\Projects\Online_Bookshop\Online_Bookshop\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Projects\Online_Bookshop\Online_Bookshop\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Projects\Online_Bookshop\Online_Bookshop\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Projects\Online_Bookshop\Online_Bookshop\DAL\obj\Debug\DAL.dll
+C:\Projects\Online_Bookshop\Online_Bookshop\DAL\obj\Debug\DAL.pdb

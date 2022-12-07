@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repo
 {
-    public class BuyRepo : IRepo<Buy, int, bool>
+    internal class BuyRepo : IRepo<Buy, int, bool>
     {
         BookshopEntities db;
 

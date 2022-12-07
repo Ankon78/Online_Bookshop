@@ -29,9 +29,9 @@ namespace Online_Bookshop.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
         [Route("api/books/add")]
-        [HttpGet]
+        [HttpPost]
 
-        public HttpResponseMessage Add(BookDTO book)
+        public HttpResponseMessage Post(BookDTO book)
         {
             var resp = BookService.Add(book);
             if (resp)
@@ -47,6 +47,13 @@ namespace Online_Bookshop.Controllers
         {
             var data = BookService.Delete(id);
             return Request.CreateResponse(HttpStatusCode.OK, "DELETED");
+        }
+        [Route("api/books/update")]
+        [HttpPost]
+        public HttpResponseMessage Update(Book s)
+        {
+            BookService.Update(s);
+            return Request.CreateResponse(HttpStatusCode.OK, "Updated");
         }
     }
 }
