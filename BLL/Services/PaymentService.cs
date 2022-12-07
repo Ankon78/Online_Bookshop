@@ -36,13 +36,24 @@ namespace BLL.Services
                 
             });
             var mapper = new Mapper(config);
-            var data = mapper.Map<Payment>(dto);
-            var result = DataAccessFactory.PaymentDataAccess().Add(data);
+            var group = mapper.Map<Payment>(dto);
+            var result = DataAccessFactory.PaymentDataAccess().Add(group);
             return result;
         }
         public static bool Delete(int id)
         {
             return DataAccessFactory.PaymentDataAccess().Delete(id);
+        }
+        public static void Update(Payment dto)
+        {
+
+            var config = new MapperConfiguration(c =>
+            {
+                c.CreateMap<PaymentDTO, Payment>();
+            });
+            var mapper = new Mapper(config);
+            var data = mapper.Map<Payment>(dto);
+            DataAccessFactory.PaymentDataAccess().Update(data);
         }
     }
 }
