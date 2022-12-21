@@ -49,6 +49,10 @@ namespace DAL
             return new PaymentRepo();
         }
 
+        public static IRepo<Category, int, Category> CategoryDataAccess()
+        {
+            return new CategoryRepo();
+        }
         public static IAuth AuthDataAccess()
         {
             return new UserRepo();

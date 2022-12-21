@@ -48,6 +48,8 @@
     <Compile Include="DTOs\BookDTO.cs" />
     <Compile Include="DTOs\BookStoreDTO.cs" />
     <Compile Include="DTOs\BuyDTO.cs" />
+    <Compile Include="DTOs\CategoryBookDTO.cs" />
+    <Compile Include="DTOs\CategoryDTO.cs" />
     <Compile Include="DTOs\LanguageDTO.cs" />
     <Compile Include="DTOs\PaymentDTO.cs" />
     <Compile Include="DTOs\ReportDTO.cs" />
@@ -59,6 +61,7 @@
     <Compile Include="Services\BookService.cs" />
     <Compile Include="Services\BookStoreService.cs" />
     <Compile Include="Services\BuyService.cs" />
+    <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\LanguageService.cs" />
     <Compile Include="Services\PaymentService.cs" />
     <Compile Include="Services\ReportService.cs" />

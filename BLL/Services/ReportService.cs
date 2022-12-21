@@ -36,13 +36,24 @@ namespace BLL.Services
                 
             });
             var mapper = new Mapper(config);
-            var data = mapper.Map<Report>(dto);
-            var result = DataAccessFactory.ReportDataAccess().Add(data);
+            var group = mapper.Map<Report>(dto);
+            var result = DataAccessFactory.ReportDataAccess().Add(group);
             return result;
         }
         public static bool Delete(int id)
         {
             return DataAccessFactory.ReportDataAccess().Delete(id);
+        }
+        public static void Update(Report dto)
+        {
+
+            var config = new MapperConfiguration(c =>
+            {
+                c.CreateMap<ReportDTO, Report>();
+            });
+            var mapper = new Mapper(config);
+            var data = mapper.Map<Report>(dto);
+            DataAccessFactory.ReportDataAccess().Update(data);
         }
     }
 }

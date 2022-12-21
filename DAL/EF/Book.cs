@@ -27,8 +27,10 @@ namespace DAL.EF
         public int amount { get; set; }
         public string bShopName { get; set; }
         public string description { get; set; }
+        public int categoryId { get; set; }
     
         public virtual Language Language { get; set; }
         public virtual ICollection<Buy> Buys { get; set; }
+        public virtual Category Category { get; set; }
     }
 }

@@ -30,9 +30,9 @@ namespace Online_Bookshop.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
         [Route("api/reports/add")]
-        [HttpGet]
+        [HttpPost]
 
-        public HttpResponseMessage Add(ReportDTO report)
+        public HttpResponseMessage Post(ReportDTO report)
         {
             var resp = ReportService.Add(report);
             if (resp)
@@ -47,6 +47,13 @@ namespace Online_Bookshop.Controllers
         {
             var data = ReportService.Delete(id);
             return Request.CreateResponse(HttpStatusCode.OK, "DELETED");
+        }
+        [Route("api/reports/update")]
+        [HttpPost]
+        public HttpResponseMessage Update(Report s)
+        {
+            ReportService.Update(s);
+            return Request.CreateResponse(HttpStatusCode.OK, "Updated");
         }
 
 

@@ -58,6 +58,9 @@
     <Compile Include="EF\Buy.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\Category.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\Language.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -97,6 +100,7 @@
     <Compile Include="Repo\BookRepo.cs" />
     <Compile Include="Repo\BookStoreRepo.cs" />
     <Compile Include="Repo\BuyRepo.cs" />
+    <Compile Include="Repo\CategoryRepo.cs" />
     <Compile Include="Repo\LanguageRepo.cs" />
     <Compile Include="Repo\PaymentRepo.cs" />
     <Compile Include="Repo\ReportRepo.cs" />

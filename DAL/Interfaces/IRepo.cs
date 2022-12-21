@@ -14,7 +14,8 @@ namespace DAL.Interfaces
             RESULT Add(CLASS obj);
             bool Delete(ID id);
             bool Update(CLASS obj);
+            /*CLASS Search(ID id);*/
 
-        }
+    }
     
 }

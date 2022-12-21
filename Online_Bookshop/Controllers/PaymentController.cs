@@ -30,9 +30,9 @@ namespace Online_Bookshop.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
         [Route("api/payments/add")]
-        [HttpGet]
+        [HttpPost]
 
-        public HttpResponseMessage add(PaymentDTO payment)
+        public HttpResponseMessage Post(PaymentDTO payment)
         {
             var resp = PaymentService.Add(payment);
             if (resp)
@@ -48,6 +48,13 @@ namespace Online_Bookshop.Controllers
         {
             var data = PaymentService.Delete(id);
             return Request.CreateResponse(HttpStatusCode.OK, "DELETED");
+        }
+        [Route("api/payments/update")]
+        [HttpPost]
+        public HttpResponseMessage Update(Payment s)
+        {
+            PaymentService.Update(s);
+            return Request.CreateResponse(HttpStatusCode.OK, "Updated");
         }
     }
 }

@@ -13,10 +13,10 @@ namespace DAL.EF
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BookshopEntities : DbContext
+    public partial class BookshopEntities1 : DbContext
     {
-        public BookshopEntities()
-            : base("name=BookshopEntities")
+        public BookshopEntities1()
+            : base("name=BookshopEntities1")
         {
         }
     
@@ -34,5 +34,6 @@ namespace DAL.EF
         public DbSet<Role> Roles { get; set; }
         public DbSet<Token> Tokens { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

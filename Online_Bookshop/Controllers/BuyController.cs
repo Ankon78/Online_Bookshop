@@ -30,9 +30,9 @@ namespace Online_Bookshop.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
         [Route("api/buys/add")]
-        [HttpGet]
+        [HttpPost]
 
-        public HttpResponseMessage add(BuyDTO buy)
+        public HttpResponseMessage Post(BuyDTO buy)
         {
             var resp = BuyService.Add(buy);
             if (resp)
@@ -48,7 +48,14 @@ namespace Online_Bookshop.Controllers
         {
             var data = BuyService.Delete(id);
             return Request.CreateResponse(HttpStatusCode.OK, "DELETED");
-        }  
+        }
 
+        [Route("api/buys/update")]
+        [HttpPost]
+        public HttpResponseMessage Update(Buy s)
+        {
+            BuyService.Update(s);
+            return Request.CreateResponse(HttpStatusCode.OK, "Updated");
+        }
     }
 }

@@ -10,10 +10,10 @@ namespace DAL.Repo
 {
     internal class TokenRepo : IRepo<Token, string, Token>
     {
-        BookshopEntities db;
+        BookshopEntities1 db;
         public TokenRepo()
         {
-            db = new BookshopEntities();
+            db = new BookshopEntities1();
         }
         public Token Add(Token obj)
         {

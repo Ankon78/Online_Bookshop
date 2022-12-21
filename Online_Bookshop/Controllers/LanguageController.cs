@@ -30,9 +30,9 @@ namespace Online_Bookshop.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, data);
         }
         [Route("api/languages/add")]
-        [HttpGet]
+        [HttpPost]
 
-        public HttpResponseMessage add(LanguageDTO language)
+        public HttpResponseMessage Post(LanguageDTO language)
         {
             var resp = LanguageService.Add(language);
             if (resp)
@@ -48,6 +48,13 @@ namespace Online_Bookshop.Controllers
         {
             var data = LanguageService.Delete(id);
             return Request.CreateResponse(HttpStatusCode.OK, "DELETED");
-        }  
+        }
+        [Route("api/languages/update")]
+        [HttpPost]
+        public HttpResponseMessage Update(Language s)
+        {
+            LanguageService.Update(s);
+            return Request.CreateResponse(HttpStatusCode.OK, "Updated");
+        }
     }
 }

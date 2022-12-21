@@ -59,6 +59,8 @@ namespace BLL.Services
             var data = mapper.Map<User>(dto);
             DataAccessFactory.UserDataAccess().Update(data);
         }
-        
+
+       
+
     }
 }

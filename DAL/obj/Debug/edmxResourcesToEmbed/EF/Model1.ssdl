@@ -10,8 +10,9 @@
     <Property Name="languageId" Type="int" Nullable="false" />
     <Property Name="quantity" Type="int" Nullable="false" />
     <Property Name="amount" Type="int" Nullable="false" />
-    <Property Name="bShopName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="bShopName" Type="varchar" MaxLength="50" />
     <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="categoryId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="BookStores">
     <Key>
@@ -30,6 +31,13 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="bookId" Type="int" Nullable="false" />
     <Property Name="pId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Languages">
     <Key>
@@ -82,6 +90,18 @@
     <Property Name="roleId" Type="int" Nullable="false" />
     <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <Association Name="FK_Books_Categories">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+    <End Role="Books" Type="Self.Books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Books">
+        <PropertyRef Name="categoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Books_Languages">
     <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
     <End Role="Books" Type="Self.Books" Multiplicity="*" />
@@ -94,7 +114,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_BookStores_Users">
+  <Association Name="FK_BookStores_BookStores">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="BookStores" Type="Self.BookStores" Multiplicity="*" />
     <ReferentialConstraint>
@@ -132,13 +152,13 @@
   </Association>
   <Association Name="FK_Reports_Users">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
-    <End Role="Reports" Type="Self.Reports" Multiplicity="0..1" />
+    <End Role="Reports" Type="Self.Reports" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="Reports">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="userId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -170,17 +190,22 @@
     <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BookStores" EntityType="Self.BookStores" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Buys" EntityType="Self.Buys" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Reports" EntityType="Self.Reports" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tokens" EntityType="Self.Tokens" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Books_Categories" Association="Self.FK_Books_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Books" EntitySet="Books" />
+    </AssociationSet>
     <AssociationSet Name="FK_Books_Languages" Association="Self.FK_Books_Languages">
       <End Role="Languages" EntitySet="Languages" />
       <End Role="Books" EntitySet="Books" />
     </AssociationSet>
-    <AssociationSet Name="FK_BookStores_Users" Association="Self.FK_BookStores_Users">
+    <AssociationSet Name="FK_BookStores_BookStores" Association="Self.FK_BookStores_BookStores">
       <End Role="Users" EntitySet="Users" />
       <End Role="BookStores" EntitySet="BookStores" />
     </AssociationSet>

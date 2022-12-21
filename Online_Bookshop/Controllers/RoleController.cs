@@ -7,9 +7,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Online_Bookshop.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class RoleController : ApiController
     {
         [Route("api/roles")]

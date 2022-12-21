@@ -10,10 +10,10 @@ namespace DAL.Repo
 {
     internal class UserRepo : IRepo<User, int, bool>, IAuth
     {
-        BookshopEntities db;
+        BookshopEntities1 db;
         public UserRepo()
         {
-            db = new BookshopEntities();
+            db = new BookshopEntities1();
         }
         public bool Add(User obj)
         {

@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="BookshopModelStoreContainer" CdmEntityContainer="BookshopEntities">
+  <EntityContainerMapping StorageEntityContainer="BookshopModelStoreContainer" CdmEntityContainer="BookshopEntities1">
     <EntitySetMapping Name="Books">
       <EntityTypeMapping TypeName="BookshopModel.Book">
         <MappingFragment StoreEntitySet="Books">
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="author" ColumnName="author" />
@@ -89,6 +90,14 @@
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="roleId" ColumnName="roleId" />
           <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="BookshopModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

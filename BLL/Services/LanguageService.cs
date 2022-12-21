@@ -36,13 +36,24 @@ namespace BLL.Services
                 
             });
             var mapper = new Mapper(config);
-            var data = mapper.Map<Language>(dto);
-            var result = DataAccessFactory.LanguageDataAccess().Add(data);
+            var group = mapper.Map<Language>(dto);
+            var result = DataAccessFactory.LanguageDataAccess().Add(group);
             return result;
         }
         public static bool Delete(int id)
         {
             return DataAccessFactory.LanguageDataAccess().Delete(id);
+        }
+        public static void Update(Language dto)
+        {
+
+            var config = new MapperConfiguration(c =>
+            {
+                c.CreateMap<LanguageDTO, Language>();
+            });
+            var mapper = new Mapper(config);
+            var data = mapper.Map<Language>(dto);
+            DataAccessFactory.LanguageDataAccess().Update(data);
         }
     }
 }

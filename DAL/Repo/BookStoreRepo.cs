@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace DAL.Repo
 {
-    public class BookStoreRepo : IRepo <BookStore, int, bool>
+    internal class BookStoreRepo : IRepo <BookStore, int, bool>
     {
-        BookshopEntities db;
+        BookshopEntities1 db;
         public BookStoreRepo()
         {
-            db = new BookshopEntities();   
+            db = new BookshopEntities1();   
         }
         public bool Add(BookStore obj)
         {
